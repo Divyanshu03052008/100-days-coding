@@ -14,14 +14,17 @@ Output 2:
 #include <math.h>
 int count_nos(int);
 int main(){
-    int n,count=0,last_digit=0,first_digit=0,swappedno=0,median;
+    int n,count=0,last_digit=0,first_digit=0,swappedno=0,median,p=1;
     printf("enter your no:");
     scanf("%d",&n);
     count=count_nos(n);
     last_digit=n%10;
-    first_digit=n/(int)(pow(10,count-1));
-    median=n%(int)(pow(10,count-1))/10;
-    swappedno=last_digit*(int)pow(10,count-1)+median*10+first_digit;
+    for(int i=1;i<=count-1;i++){
+        p=p*10;
+    }
+    first_digit=(n/p);
+    median=(n%p)/10;
+    swappedno=last_digit*p+median*10+first_digit;
     printf("swaping of first and last digit of no:%d",swappedno);
     return 0;
 }
